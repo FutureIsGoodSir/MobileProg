@@ -14,36 +14,61 @@ import androidx.compose.ui.unit.sp
 import com.example.eweek04a.model.Item
 import com.example.eweek04a.model.TodoStatus
 
+//@Composable
+//fun TodoItem(item: Item, modifier: Modifier = Modifier) {
+//    Column {
+//        Text(
+//            text = item.content,
+//            fontSize = 16.sp,
+//            style = if (item.status == TodoStatus.COMPLETED)
+//                TextStyle(textDecoration = TextDecoration.LineThrough)
+//            else
+//                TextStyle(textDecoration = TextDecoration.None)
+//        )
+//        Spacer(modifier = Modifier.height(4.dp))
+//        Text(
+//            text = item.time,
+//            fontSize = 10.sp
+//        )
+//    }
+//}
+//
+//@Preview
+//@Composable
+//private fun TodoItemPreview() {
+//    Column {
+//        TodoItem(item = Item("모프 공부하기1", "03-26-12:38"))
+//        TodoItem(item = Item("모프 공부하기2", "03-26-13:38", TodoStatus.COMPLETED))
+//    }
+//}
+
 @Composable
-fun TodoItem(item: Item, modifier: Modifier = Modifier) {
+fun TodoItem(item: Item) {
     Column {
         Text(
-            text = item.content,
+            item.content,
             fontSize = 16.sp,
-            style = if (item.status == TodoStatus.COMPLETED)
-                TextStyle(textDecoration = TextDecoration.LineThrough)
-            else
-                TextStyle(textDecoration = TextDecoration.None)
+            style = TextStyle(
+                textDecoration =
+                    if (item.status == TodoStatus.COMPLETED)
+                        TextDecoration.LineThrough
+                    else
+                        TextDecoration.None
+            )
         )
-        Spacer(modifier = Modifier.height(4.dp))
+        Spacer(Modifier.height(4.dp))
         Text(
-            text = item.time,
+            item.time,
             fontSize = 10.sp
         )
     }
 }
 
-@Preview
+@Preview(showBackground = true)
 @Composable
-private fun TodoItemPreview() {
+private fun TodoStatusPreview() {
     Column {
-        TodoItem(item = Item("모프 공부하기1", "03-26-12:38"))
-        TodoItem(item = Item("모프 공부하기2", "03-26-13:38", TodoStatus.COMPLETED))
+        TodoItem(Item("모프 공부하기1", "03-26-12:38"))
+        TodoItem(Item("모프 공부하기2", "03-26-13:38", TodoStatus.COMPLETED))
     }
 }
-
-
-
-
-
-

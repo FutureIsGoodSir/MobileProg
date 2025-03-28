@@ -36,6 +36,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
+@Preview
+@Composable
+private fun asdf() {
+    var text by remember {mutableStateOf("hello")}
+    TextField(
+        value = text,
+        onValueChange = {text=it},
+        label = {Text("fuck you")}
+    )
+}
+
 @Preview(showBackground = true)
 @Composable
 fun SimpleTextFieldSample() {

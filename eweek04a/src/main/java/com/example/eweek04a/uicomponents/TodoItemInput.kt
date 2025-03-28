@@ -13,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.eweek04a.model.Item
 import com.example.eweek04a.model.TodoItemFactory
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @Composable
 fun TodoItemInput(todoList:MutableList<Item>, modifier: Modifier = Modifier) {
@@ -26,6 +28,8 @@ fun TodoItemInput(todoList:MutableList<Item>, modifier: Modifier = Modifier) {
         )
         Button(onClick = {
             //내가 완성
+            todoList.add(Item(content = textFieldState,time = LocalDateTime.now().format(
+                DateTimeFormatter.ofPattern("MM-dd HH:mm"))))
         }) {
             Text("추가")
 //            Spacer(Modifier.width())
