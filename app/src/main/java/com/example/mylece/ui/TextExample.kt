@@ -2,20 +2,32 @@ package com.example.mylece.ui
 
 import android.util.Log
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.text.selection.DisableSelection
 import androidx.compose.foundation.text.selection.SelectionContainer
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shadow
 import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.ParagraphStyle
+import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.LineHeightStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import androidx.compose.ui.unit.sp
 
 //@Preview(showBackground = true)
@@ -53,34 +65,34 @@ import androidx.compose.ui.unit.sp
 //fun BoldText() {
 //    Text("Hello World", fontWeight = FontWeight.Bold)
 //}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun CenterText() {
-//    Text(
-//        "Hello World",
-//        modifier = Modifier.width(150.dp),
-//        textAlign = TextAlign.Center
-//    )
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun TextShadow() {
-//    val offset = Offset(5.0f, 10.0f)
-//    Text(
-//        text = "Hello world!",
-//        style = TextStyle(
-//            fontSize = 24.sp,
-//            shadow = Shadow(
-//                color = Color.Blue,
-//                offset = offset,
-//                blurRadius = 3f
-//            )
-//        )
-//    )
-//}
-//
+
+@Preview(showBackground = true)
+@Composable
+fun CenterText() {
+    Text(
+        "Hello World",
+        modifier = Modifier.width(150.dp),
+        textAlign = TextAlign.Center
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun TextShadow() {
+    val offset = Offset(5.0f, 10.0f)
+    Text(
+        text = "Hello world!",
+        style = TextStyle(
+            fontSize = 24.sp,
+            shadow = Shadow(
+                color = Color.Blue,
+                offset = offset,
+                blurRadius = 3f
+            )
+        )
+    )
+}
+
 //@Preview(showBackground = true)
 //@Composable
 //fun DifferentFonts() {
@@ -89,79 +101,81 @@ import androidx.compose.ui.unit.sp
 //        Text("Hello World", fontFamily = FontFamily.SansSerif)
 //    }
 //}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun MultipleStylesInText() {
-//    Text(
-//        buildAnnotatedString { // 문자열의 특정부분에 개별적 스타일 적용
-//            withStyle(style = SpanStyle(color = Color.Blue)) {
-//                append("H")
-//            }
-//            append("ello ")
-//
-//            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Red)) {
-//                append("W")
-//            }
-//            append("orld")
-//        }
-//    )
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun ParagraphStyle() {
-//    Text(
-//        buildAnnotatedString {
-//            withStyle(style = androidx.compose.ui.text.ParagraphStyle(lineHeight = 30.sp)) {
-//                withStyle(style = SpanStyle(color = Color.Blue)) {
-//                    append("Hello\n")
-//                }
-//                withStyle(
-//                    style = SpanStyle(
-//                        fontWeight = FontWeight.Bold,
-//                        color = Color.Red
-//                    )
-//                ) {
-//                    append("World\n")
-//                }
-//                append("Compose")
-//            }
-//        }
-//    )
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun LongText() {
-//    Text("hello ".repeat(50), maxLines = 2)
-//}
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun OverflowedText() {
-//    Text("Hello Compose ".repeat(50), maxLines = 2, overflow = TextOverflow.Ellipsis) // ... 으로 표시
-//}
 
-//@Preview(showBackground = true)
-//@Composable
-//fun AlignedText() {
-//    Text(
-//        text = "greenjoa",
-//        style = LocalTextStyle.current.merge( // 텍스트의 줄 간격과 정렬 방식을 세밀하게 제어
-//            TextStyle(
-//                lineHeight = 2.5.em, // 텍스트의 줄 간격을 글꼴의 2.5배 설정 ( em : 글꼴의 높이를 고려한 상대적인 크기 )
-//                platformStyle = PlatformTextStyle(
-//                    includeFontPadding = false // 플랫폼별 기본 폰트 패딩 사용하지 않음
-//                ),
-//                lineHeightStyle = LineHeightStyle(
-//                    alignment = LineHeightStyle.Alignment.Center,
-//                    trim = LineHeightStyle.Trim.None  // 텍스트 주변 여백 유지
-//                )
-//            )
-//        )
-//    )
-//}
+@Preview(showBackground = true)
+@Composable
+fun MultipleStylesInText() {
+    Text(
+        buildAnnotatedString { // 문자열의 특정부분에 개별적 스타일 적용
+            withStyle(style = SpanStyle(color = Color.Blue)) {
+                append("H")
+            }
+            append("ello ")
+
+            withStyle(style = SpanStyle(fontWeight = FontWeight.Bold, color = Color.Red)) {
+                append("W")
+            }
+            append("orld")
+        }
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ParagraphStyle() {
+    Text(
+        buildAnnotatedString {
+            withStyle(style = ParagraphStyle(lineHeight = 30.sp)) {
+                withStyle(style = SpanStyle(color = Color.Blue)) {
+                    append("Hello\n")
+                }
+                withStyle(
+                    style = SpanStyle(
+                        fontWeight = FontWeight.Bold,
+                        color = Color.Red
+                    )
+                ) {
+                    append("World\n")
+                }
+                append("Compose")
+            }
+        }
+    )
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun LongText() {
+    Text("hello ".repeat(50), maxLines = 2)
+}
+
+@Preview(showBackground = true)
+@Composable
+fun OverflowedText() {
+    Text("Hello Compose ".repeat(50), maxLines = 2, overflow = TextOverflow.Ellipsis) // ... 으로 표시
+}
+
+//여기부터 공부해야 됨
+@Preview(showBackground = true)
+@Composable
+fun AlignedText() {
+    Text(
+        text = "greenjoa",
+        style = LocalTextStyle.current.merge( // 텍스트의 줄 간격과 정렬 방식을 세밀하게 제어
+            TextStyle(
+                lineHeight = 2.5.em, // 텍스트의 줄 간격을 글꼴의 2.5배 설정 ( em : 글꼴의 높이를 고려한 상대적인 크기 )
+                platformStyle = PlatformTextStyle(
+                    includeFontPadding = false // 플랫폼별 기본 폰트 패딩 사용하지 않음
+                ),
+                lineHeightStyle = LineHeightStyle(
+                    alignment = LineHeightStyle.Alignment.Center,
+                    trim = LineHeightStyle.Trim.None  // 텍스트 주변 여백 유지
+                )
+            )
+        )
+    )
+}
 
 @Preview(showBackground = true)
 @Composable
