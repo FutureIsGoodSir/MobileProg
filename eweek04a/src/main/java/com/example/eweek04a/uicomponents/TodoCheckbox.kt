@@ -15,3 +15,14 @@ fun TodoCheckbox(
         onCheckedChange = {checked -> onCheckedChange(checked)}//상태 값을 밖으로 전달하자
     )
 }
+
+//@Composable
+//fun TodoCheckbox(
+//    checked: Boolean,
+//    onCheckedChange:(Boolean)->Unit
+//) {
+//    Checkbox(
+//        checked,
+//        onCheckedChange = {onCheckedChange(it)}
+//    )
+//}

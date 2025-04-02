@@ -12,11 +12,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.eweek04a.model.Item
-import com.example.eweek04a.model.TodoItemFactory
 import com.example.eweek04a.model.TodoStatus
 
 @Composable
-fun TodoList(todoList: MutableList<Item>, modifier: Modifier = Modifier) {
+fun TodoList(
+    todoList: MutableList<Item>,
+    modifier: Modifier = Modifier,
+    showPending: Boolean
+) {
     val scrollState = rememberScrollState()
     Column(
         modifier = modifier
@@ -24,27 +27,71 @@ fun TodoList(todoList: MutableList<Item>, modifier: Modifier = Modifier) {
             .verticalScroll(scrollState)
     ) {
         todoList.forEachIndexed { index, item ->
-            Card(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 4.dp)
+            if ((showPending && item.status == TodoStatus.PENDING)
+                || !showPending
             ) {
-                Row {
-                    TodoCheckbox(item.status == TodoStatus.COMPLETED) { isChecked ->
-                        todoList[index] = item.copy(
-                            status = if (isChecked) TodoStatus.COMPLETED
-                            else TodoStatus.PENDING
-                        )
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 4.dp)
+                ) {
+                    Row {
+                        TodoCheckbox(item.status == TodoStatus.COMPLETED) { isChecked ->
+                            todoList[index] = item.copy(
+                                status = if (isChecked) TodoStatus.COMPLETED
+                                else TodoStatus.PENDING
+                            )
+                        }
+                        TodoItem(item = item)
                     }
-                    TodoItem(item = item)
                 }
             }
         }
     }
 }
+//@Composable
+//fun TodoList(todoList: MutableList<Item>, modifier: Modifier = Modifier) {
+//    //rememberScrollState
+//    Column(modifier) {
+//        todoList.forEachIndexed { index, item ->
+//            Card(
+//                Modifier
+//                    .fillMaxWidth()
+//                    .padding(vertical = 4.dp)
+//                    .toggleable(
+//                        item.status == TodoStatus.COMPLETED,
+//                        role = Role.Checkbox,
+//                        onValueChange = { isChecked ->
+//                            todoList[index] = item.copy(
+//                                status = if(isChecked)
+//                                    TodoStatus.COMPLETED
+//                                else
+//                                    TodoStatus.PENDING
+//                            )
+//                        },
+//
+//                    )
+//            ) {
+//                Row {
+//                    TodoCheckbox(item.status == TodoStatus.COMPLETED) { isChecked ->
+//                        todoList[index] = item.copy(
+//                            status = if(isChecked)
+//                                 TodoStatus.COMPLETED
+//                            else
+//                                TodoStatus.PENDING
+//                        )
+//                    }
+//                    Column(Modifier.padding(4.dp)) {
+//                        TodoItem(item)
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}
 
 @Preview
 @Composable
 private fun TodoListPreview() {
-    TodoList(TodoItemFactory.makeTodoList())
+//    TodoList(TodoItemFactory.makeTodoList())
 }

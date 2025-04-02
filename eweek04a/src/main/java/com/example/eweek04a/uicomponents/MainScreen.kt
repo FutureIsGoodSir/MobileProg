@@ -49,11 +49,22 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 Modifier.padding(8.dp)
             )
         }
-        TodoList(filteredList, Modifier.weight(1f).padding(horizontal = 8.dp))
+        TodoList(todoList, Modifier.weight(1f).padding(horizontal = 8.dp),showPending)
         Spacer(Modifier.height(8.dp))
         TodoItemInput(todoList,modifier=Modifier.padding(8.dp))
     }
 }
+
+//@Composable
+//fun MainScreen(modifier: Modifier = Modifier) {
+//    Column {
+//        TodoListTitle()
+//        var todolist = TodoItemFactory.makeTodoList()
+//        TodoList(todolist,modifier= Modifier.weight(1f))
+//        Spacer(Modifier.height(8.dp))
+//        TodoItemInput(todolist)
+//    }
+//}
 
 @Preview
 @Composable
