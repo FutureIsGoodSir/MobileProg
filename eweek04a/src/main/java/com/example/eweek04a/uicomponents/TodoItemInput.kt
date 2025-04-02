@@ -23,23 +23,25 @@ import java.time.format.DateTimeFormatter
 fun TodoItemInput(todoList: MutableList<Item>, modifier: Modifier = Modifier) {
     //텍스트 필드는 연결된 상태 객체?가 필요
     var textFieldState by remember { mutableStateOf("") }
-    Row {
+    Row(modifier) {
         TextField(
             value = textFieldState,//스테이트가 바뀌면 함수가 재호출해야 되니까, 컨텐츠 내용이 여기 들어가야 함
             onValueChange = { text: String -> textFieldState = text },//꼭 줘야 한다, 텍스트로 입력 값이 들어온다
             placeholder = { Text("할 일을 입력하세요.") }
         )
         Spacer(Modifier.width(8.dp))
-        Button(onClick = {
-            //내가 완성
-            todoList.add(
-                Item(
-                    content = textFieldState, time = LocalDateTime.now().format(
-                        DateTimeFormatter.ofPattern("MM-dd HH:mm")
+        Button(
+            onClick = {
+                //내가 완성
+                todoList.add(
+                    Item(
+                        content = textFieldState, time = LocalDateTime.now().format(
+                            DateTimeFormatter.ofPattern("MM-dd HH:mm")
+                        )
                     )
                 )
-            )
-        }) {
+            },
+        ) {
             Text("추가")
 //            Spacer(Modifier.width())
         }

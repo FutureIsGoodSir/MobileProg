@@ -34,7 +34,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
     else
         todoList
     Column {
-        TodoListTitle()
+        TodoListTitle(Modifier.padding(8.dp))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.End,
@@ -45,12 +45,13 @@ fun MainScreen(modifier: Modifier = Modifier) {
                 showPending,
                 onCheckedChange = {
                     showPending = it
-                }
+                },
+                Modifier.padding(8.dp)
             )
         }
-        TodoList(todoList, Modifier.weight(1f))
-        Spacer(Modifier.height(80.dp))
-        TodoItemInput(todoList)
+        TodoList(filteredList, Modifier.weight(1f).padding(horizontal = 8.dp))
+        Spacer(Modifier.height(8.dp))
+        TodoItemInput(todoList,modifier=Modifier.padding(8.dp))
     }
 }
 
