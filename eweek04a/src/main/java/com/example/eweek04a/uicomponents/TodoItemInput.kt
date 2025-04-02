@@ -1,6 +1,8 @@
 package com.example.eweek04a.uicomponents
 
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -11,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.eweek04a.model.Item
 import com.example.eweek04a.model.TodoItemFactory
 import java.time.LocalDateTime
@@ -26,6 +29,7 @@ fun TodoItemInput(todoList: MutableList<Item>, modifier: Modifier = Modifier) {
             onValueChange = { text: String -> textFieldState = text },//꼭 줘야 한다, 텍스트로 입력 값이 들어온다
             placeholder = { Text("할 일을 입력하세요.") }
         )
+        Spacer(Modifier.width(8.dp))
         Button(onClick = {
             //내가 완성
             todoList.add(

@@ -19,7 +19,7 @@ import com.example.eweek04a.model.TodoStatus
 fun TodoList(todoList: MutableList<Item>, modifier: Modifier = Modifier) {
     val scrollState = rememberScrollState()
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .verticalScroll(scrollState)
     ) {
