@@ -32,7 +32,7 @@ fun ButtonWithEmoji(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = { onClickLikes() }) {
-                Text(text = "😍", fontSize = 32.sp)
+                Text(text = "🤑", fontSize = 32.sp)
             }
             Text(text = likes.toString(), fontSize = 16.sp)
         }
@@ -42,7 +42,7 @@ fun ButtonWithEmoji(
             verticalAlignment = Alignment.CenterVertically
         ) {
             IconButton(onClick = { onClickDisLikes() }) {
-                Text(text = "🤮", fontSize = 32.sp)
+                Text(text = "🤢", fontSize = 32.sp)
             }
             Text(text = dislikes.toString(), fontSize = 16.sp)
         }
