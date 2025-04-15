@@ -33,7 +33,9 @@ fun ImageList(
                     ButtonWithEmoji(
                         likes = imageData.likes,
                         dislikes = imageData.dislikes,
-                        onClickLikes = { imageList[index] = imageData.copy(likes = imageData.likes + 1) },
+                        onClickLikes = {
+                            imageList[index] = imageData.copy(likes = imageData.likes + 1)
+                        },
                         onClickDisLikes = {
                             imageList[index] = imageData.copy(dislikes = imageData.dislikes + 1)
                         }

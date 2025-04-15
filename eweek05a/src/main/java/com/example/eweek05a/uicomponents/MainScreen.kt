@@ -40,7 +40,7 @@ fun MainScreen(
             ImageList(imageList = imageList)
         }
     }
-
+//--------------------------------------------------------------------------
 //    var img1State by rememberSaveable(stateSaver = ImageData.ImageSaver) {
 //        mutableStateOf(
 //            ImageData(
@@ -60,7 +60,7 @@ fun MainScreen(
 //            )
 //        )
 //    }
-//
+
 //    Column {
 //        ImageWithButton(image = img1State.image) {
 //            ButtonWithBadge(
@@ -79,35 +79,6 @@ fun MainScreen(
 //            )
 //        }
 //    }
-//
-////    Column {
-////        when (img1State.image) {
-////            is ImageUri.WebImage -> AsyncImage(
-////                model = (img1State.image as ImageUri.WebImage).webUrl,
-////                contentDescription = null
-////            )
-////
-////            is ImageUri.ResImage -> Image(
-////                painter = painterResource((img1State.image as ImageUri.ResImage).resID),
-////                contentDescription = null
-////            )
-////
-////            else -> throw IllegalArgumentException("타입 오류")
-////        }
-////
-////        Button(
-////            {
-////                img1State = ImageData(
-////                    image = ImageUri.ResImage(R.drawable.img2),
-////                    buttonType = ButtonType.ICON,
-////                    likes = 23,
-////                    dislikes = 14
-////                )
-////            }
-////        ) {
-////
-////        }
-////    }
 }
 
 @Preview

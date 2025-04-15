@@ -8,9 +8,4 @@ class ImageViewModel : ViewModel() {
     private val _imageList = ImageListFactory.makeImageList()
     val imageList: MutableList<ImageData>
         get() = _imageList
-    // private val _imageList = mutableStateListOf<Item>()
-    //
-    // init{
-    // }
-    // _imageList.addAll(ImageListFactory.makeImageList())
 }
