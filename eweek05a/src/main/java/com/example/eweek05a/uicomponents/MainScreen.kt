@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
@@ -17,17 +18,18 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.eweek05a.model.ImageListFactory
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.eweek05a.viewmodel.ImageViewModel
 import com.example.week05.uiexamples.ScrollToTopButton
 import kotlinx.coroutines.launch
 
 @Composable
 fun MainScreen(
     modifier: Modifier = Modifier,
-//    imageViewModel: ImageViewModel = viewModel()
+    imageViewModel: ImageViewModel = viewModel()
 ) {
     val orientation = LocalConfiguration.current.orientation
-    val imageList = ImageListFactory.makeImageList()
+    val imageList = imageViewModel.imageList
 
     val state = rememberLazyListState()
     val scope = rememberCoroutineScope()
@@ -69,10 +71,10 @@ fun MainScreen(
         }
     } else {
         Box(Modifier.fillMaxSize()) {
-            LazyColumn(
+            LazyRow(
                 Modifier.fillMaxWidth(),
                 state = state,
-                horizontalAlignment = Alignment.CenterHorizontally
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 itemsIndexed(imageList) { index, imageData ->
                     SingleImage(
@@ -99,9 +101,7 @@ fun MainScreen(
     }
 
 //--------------------------------------------------------------------------
-//    val imageList = imageViewModel.imageList
 //    val scrollState = rememberScrollState()
-//    val orientation = LocalConfiguration.current.orientation
 //    if (orientation == Configuration.ORIENTATION_PORTRAIT) {
 //        Column(
 //            Modifier.fillMaxWidth().verticalScroll(scrollState),
