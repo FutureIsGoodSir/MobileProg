@@ -68,12 +68,36 @@ fun MainScreen(
             }
         }
     } else {
-//        LazyRow(
-//            Modifier.fillMaxHeight(),
-//            verticalAlignment = Alignment.CenterVertically
-//        ) {
-//        }
+        Box(Modifier.fillMaxSize()) {
+            LazyColumn(
+                Modifier.fillMaxWidth(),
+                state = state,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                itemsIndexed(imageList) { index, imageData ->
+                    SingleImage(
+                        imageData = imageData,
+                        onClickLikes =
+                            {
+                                imageList[index] = imageData.copy(likes = imageData.likes + 1)
+                            },
+                        onClickDislikes =
+                            {
+                                imageList[index] = imageData.copy(dislikes = imageData.dislikes + 1)
+                            },
+                    )
+                }
+            }
+            AnimatedVisibility(showButton) {
+                ScrollToTopButton {
+                    scope.launch {
+                        state.scrollToItem(0)
+                    }
+                }
+            }
+        }
     }
+
 //--------------------------------------------------------------------------
 //    val imageList = imageViewModel.imageList
 //    val scrollState = rememberScrollState()

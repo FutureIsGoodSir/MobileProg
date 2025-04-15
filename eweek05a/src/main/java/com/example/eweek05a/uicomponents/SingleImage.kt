@@ -6,11 +6,12 @@ import com.example.eweek05a.model.ButtonType
 import com.example.eweek05a.model.ImageData
 
 @Composable
-fun SingleImage(modifier: Modifier = Modifier,
-                imageData:ImageData,
-                onClickLikes:()->Unit,
-                onClickDislikes:()->Unit
-                ) {
+fun SingleImage(
+    modifier: Modifier = Modifier,
+    imageData: ImageData,
+    onClickLikes: () -> Unit,
+    onClickDislikes: () -> Unit
+) {
     when (imageData.buttonType) {
         ButtonType.ICON -> {
             ImageWithButton(image = imageData.image) {
