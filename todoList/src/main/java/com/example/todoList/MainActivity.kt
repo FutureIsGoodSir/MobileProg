@@ -1,22 +1,20 @@
-package com.example.eweek07a
+package com.example.todoList
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.eweek07a.navExample01.uicomponents.MainScreen
-import com.example.eweek07a.ui.theme.MainScreenktTheme
+import com.example.todoList.ui.theme.MyLecETheme
+import com.example.todoList.uicomponents.MainScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
-            MainScreenktTheme {
+            MyLecETheme {
                 MainScreen()
             }
         }
@@ -34,7 +32,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    MainScreenktTheme {
+    MyLecETheme {
         Greeting("Android")
     }
 }

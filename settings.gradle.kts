@@ -20,7 +20,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "MyLecE"
-include(":app")
-include(":eweek04a")
+include(":eweek02a")
+include(":todoList")
 include(":eweek05a")
 include(":eweek07a")
