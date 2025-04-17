@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SonarLintProjectSettings">
+    <option name="moduleMapping">
+      <map>
+        <entry key="MyLecE.eweek02a" value="MyLecE.app" />
+        <entry key="MyLecE.todoList" value="MyLecE.eweek04a" />
+        <entry key="MyLecE.todoList.androidTest" value="MyLecE.Todolist.androidTest" />
+        <entry key="MyLecE.todoList.main" value="MyLecE.Todolist.main" />
+        <entry key="MyLecE.todoList.unitTest" value="MyLecE.Todolist.unitTest" />
+        <entry key="eweek02a" value="MyLecE.app" />
+      </map>
+    </option>
+  </component>
+</project>
