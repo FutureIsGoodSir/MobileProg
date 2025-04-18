@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.eweek04a.model.Item
+import com.example.eweek04a.model.TodoItemFactory
 import com.example.eweek04a.model.TodoStatus
 
 @Composable
@@ -93,5 +94,5 @@ fun TodoList(
 @Preview
 @Composable
 private fun TodoListPreview() {
-//    TodoList(TodoItemFactory.makeTodoList())
+    TodoList(TodoItemFactory.makeTodoList(), showPending = true)
 }

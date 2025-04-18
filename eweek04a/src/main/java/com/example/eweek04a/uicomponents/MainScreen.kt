@@ -41,7 +41,7 @@ fun MainScreen(modifier: Modifier = Modifier) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text("미완료 항목만 보기")
-            Switch(
+            Switch(//스위치
                 showPending,
                 onCheckedChange = {
                     showPending = it

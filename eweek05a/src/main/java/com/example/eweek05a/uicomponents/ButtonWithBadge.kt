@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ButtonWithBadge(likes: Int, onClick: () -> Unit) {
     Column(modifier = Modifier.padding(8.dp)) {
-        BadgedBox(badge = { Badge { Text("$likes") } }) {
+        BadgedBox(badge = { Badge { Text("$likes") } }) {//배지 있는 버튼
             Icon(
                 Icons.Default.Favorite,
                 contentDescription = null,

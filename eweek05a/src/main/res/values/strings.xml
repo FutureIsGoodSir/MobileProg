@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">eweek05a</string>
+    <string name="compose">compose</string>
+    <string name="congratulate">%1$s를 축하해! %2$d년이 됐어.</string>
 </resources>

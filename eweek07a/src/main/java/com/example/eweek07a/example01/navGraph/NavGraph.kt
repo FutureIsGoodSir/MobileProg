@@ -39,7 +39,14 @@ fun NavGraph(
         }
 
         composable(route = Routes.ScreenC.route) {
-            Screen_C(onNavigate = {navController.navigate(Routes.Home.route)})
+            Screen_C(onNavigate = {
+                navController.navigate(Routes.Home.route){//뒤로 가기 했을 때 종료시키기
+                    popUpTo(Routes.Home.route) {//원래는 인자 페이지 바로 아래까지만 비움
+                        inclusive=true//인자 페이지 포함해서 지우기
+                    }
+                    launchSingleTop = true//탑과 중복되는 페이지면 올리지 말아라
+                }
+            })
         }
     }
 }

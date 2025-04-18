@@ -21,11 +21,11 @@ fun TodoItem(item: Item, modifier: Modifier = Modifier) {
             text = item.content,
             fontSize = 16.sp,
             style = if (item.status == TodoStatus.COMPLETED)
-                TextStyle(textDecoration = TextDecoration.LineThrough)
+                TextStyle(textDecoration = TextDecoration.LineThrough)//취소선
             else
                 TextStyle(textDecoration = TextDecoration.None)
         )
-        Spacer(modifier = Modifier.height(4.dp))
+        Spacer(modifier = Modifier.height(4.dp))//공백
         Text(
             text = item.time,
             fontSize = 10.sp

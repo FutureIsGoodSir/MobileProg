@@ -37,7 +37,7 @@ fun TodoItemInput(todoList: MutableList<Item>, modifier: Modifier = Modifier) {
                     Item(
                         content = textFieldState, time = LocalDateTime.now().format(
                             DateTimeFormatter.ofPattern("MM-dd HH:mm")
-                        )
+                        )//시간
                     )
                 )
             },

@@ -31,7 +31,7 @@ fun ButtonWithEmoji(
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            IconButton(onClick = { onClickLikes() }) {
+            IconButton(onClick = { onClickLikes() }) {//이모지 버튼
                 Text(text = "🤑", fontSize = 32.sp)
             }
             Text(text = likes.toString(), fontSize = 16.sp)
