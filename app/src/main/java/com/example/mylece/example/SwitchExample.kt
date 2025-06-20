@@ -1,4 +1,4 @@
-package com.example.mylece.ui
+package com.example.mylece.example
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons

@@ -23,8 +23,8 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun TextLazyColumnFAB(dataList: MutableList<String>, modifier: Modifier = Modifier) {
-    val state = rememberLazyListState()
-    val scope = rememberCoroutineScope()
+    val state = rememberLazyListState()//레이지 컬럼에서 스크롤을 조작하기 위해 레이지 컬럼의 상태가 필요하다
+    val scope = rememberCoroutineScope()//서스펜드 함수에 스코프 사용
 
     val showButton by remember {//대입 연산 비효율적
         derivedStateOf {//다른 상태에 의해 내 상태가 결정이 된다면 디라이브드 쓰자

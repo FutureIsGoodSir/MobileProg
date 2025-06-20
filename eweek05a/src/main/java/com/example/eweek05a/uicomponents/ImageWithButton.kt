@@ -75,7 +75,7 @@ fun ImageWithButton(
 ) {
     val img = when(image){
         is ImageUri.ResImage -> image.resID
-        is ImageUri.WebImage -> image.webUrl
+        is ImageUri.WebImage -> image.webUrl//웹 res 둘아 어싱크로 쓸 수 있다
     }
     Column(
         modifier = Modifier.fillMaxWidth(),

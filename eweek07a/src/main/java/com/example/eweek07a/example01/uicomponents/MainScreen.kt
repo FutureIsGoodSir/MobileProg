@@ -9,11 +9,14 @@ import com.example.eweek07a.example01.navGraph.NavGraph
 
 @SuppressLint("RestrictedApi")
 @Composable
-fun MainScreen(modifier: Modifier = Modifier) {
+fun MainScreen(
+    modifier: Modifier = Modifier,
+    onNavigate = navCont
+) {
     val navController = rememberNavController()
     navController.addOnDestinationChangedListener { _, _, _ ->
         navController.currentBackStack.value.forEachIndexed { index, entry ->
-            Log.d("backstack","$index ${entry.destination.route}")
+            Log.d("backstack", "$index ${entry.destination.route}")
         }
     }
     NavGraph(navController = navController)

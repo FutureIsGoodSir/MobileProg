@@ -18,10 +18,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun LoginScreen(onWelcomeNavigate:()->Unit,onRegisterNavigate:()->Unit) {
+fun LoginScreen(onWelcomeNavigate:(String)->Unit,onRegisterNavigate:(String,String)->Unit) {
 
     val userId = "greenjoa"
     val userPasswd = "1234"
@@ -46,7 +47,7 @@ fun LoginScreen(onWelcomeNavigate:()->Unit,onRegisterNavigate:()->Unit) {
             fontSize = 40.sp,
             fontWeight = FontWeight.ExtraBold)
 
-        OutlinedTextField(value = userIdState,
+        OutlinedTextField(value = userIdState,//테두리 있는 텍스트 필드
             onValueChange = {userIdState =it},
             label = {Text("User ID")}
         )
@@ -54,14 +55,26 @@ fun LoginScreen(onWelcomeNavigate:()->Unit,onRegisterNavigate:()->Unit) {
         OutlinedTextField( value = userPasswdState,
             onValueChange = { userPasswdState = it },
             label = { Text("Enter password") },
-            visualTransformation = PasswordVisualTransformation(),
+            visualTransformation = PasswordVisualTransformation(),//비밀번호/암호/패스워드/비번을 가려 줌
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
         )
 
         Button(onClick = {
-
+            if(loginresult)
+                onWelcomeNavigate(userIdState)
+            else
+                onRegisterNavigate(userIdState,userPasswdState)
         }){
             Text(text = "Login")
         }
     }
+}
+
+@Preview
+@Composable
+private fun LoginScreenPreview() {
+    LoginScreen(
+        onWelcomeNavigate = {},
+        onRegisterNavigate = {a,b->}
+    )
 }

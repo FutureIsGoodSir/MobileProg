@@ -15,9 +15,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ScrollToTopButton(goToTop: () -> Unit) {
+fun ScrollToTopButton(goToTop: () -> Unit) {//스크롤을 상단으로 이동시키는 버튼
     Box(modifier = Modifier.fillMaxSize()) {
-        FloatingActionButton(
+        FloatingActionButton(//띄워져 있는 것처럼 보이는 버튼
             modifier = Modifier
                 .padding(16.dp)
                 .size(50.dp)

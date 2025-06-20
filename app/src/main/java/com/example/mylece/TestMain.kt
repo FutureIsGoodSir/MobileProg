@@ -389,10 +389,10 @@ package com.example.week02
  */
 //fun main() {
 //    val numbers = listOf(5, 2, 8, 1, 3)
-//    val sortedNumbers = numbers.sorted()
+//    val sortedNumbers = numbers.성ed()
 //    println(sortedNumbers)
 //
-//    val descendingNumbers = numbers.sortedDescending()
+//    val descendingNumbers = numbers.sortedDescending()//내림차 정렬
 //    println(descendingNumbers)
 //}
 
@@ -410,10 +410,10 @@ package com.example.week02
 //    )
 //    val sortedUsers = users.sorted()
 //    val descendingUsers = users.sortedDescending()
-//    val sortedUsers2 = users.sortedBy { it.age }
+//    val sortedUsers2 = users.sortedBy { it.age }//클래스의 속성에 따라 정렬
 //    val descendingUsers2 = users.sortedByDescending { it.age }
 //    val sortedUsers3 = users.sortedWith(
-//        compareBy<User> { it.age }
+//        compareBy<User> { it.age }//정렬 기준 우선 순위 클래스 속
 //            .thenBy { it.name }
 //    )
 //    val descendingUsers3 = users.sortedWith(

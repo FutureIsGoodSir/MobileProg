@@ -25,11 +25,11 @@ import androidx.compose.ui.unit.dp
 fun ButtonWithBadge(likes: Int, onClick: () -> Unit) {
     Column(modifier = Modifier.padding(8.dp)) {
         BadgedBox(badge = { Badge { Text("$likes") } }) {//배지 있는 버튼
-            Icon(
+            Icon(//아이콘
                 Icons.Default.Favorite,
                 contentDescription = null,
-                tint = if (likes > 0) Color.Red else LocalContentColor.current,
-                modifier = Modifier.clickable { onClick() }
+                tint = if (likes > 0) Color.Red else LocalContentColor.current,//아이콘 색깔, 로컬은 현재 색깔
+                modifier = Modifier.clickable { onClick() }//클릭 가능하게 만듦
             )
         }
     }

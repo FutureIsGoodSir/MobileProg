@@ -1,4 +1,4 @@
-package com.example.mylece.ui
+package com.example.mylece.example
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -44,7 +44,7 @@ fun SimpleTextFieldSample() {
     TextField(
         value = text,
         onValueChange = { text = it },
-        label = { Text("Label") },
+        label = { Text("Label") },//텍스트 필드에서 위에 작게 뜨는 레이블
         singleLine = true
     )
 }
@@ -58,7 +58,7 @@ fun TextFieldWithPlaceholder() {
         value = text,
         onValueChange = { text = it },
         label = { Text("Email") },
-        placeholder = { Text("example@gmail.com") }
+        placeholder = { Text("example@gmail.com") }//입력하기 전까지 예시처럼 적혀 있는 플레이스 홀더
     )
 }
 

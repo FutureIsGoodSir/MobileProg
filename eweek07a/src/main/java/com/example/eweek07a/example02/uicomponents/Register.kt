@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 
 @Composable
@@ -25,7 +26,7 @@ fun Register(
 ) {
 
     var userIdState by remember {
-        mutableStateOf(userID ?: "")
+        mutableStateOf(userID ?: "")//엘비스 연산자, 왼쪽 표현식이 널이 아니면 왼쪽 값을 사용하고 널이면 오른쪽 값을 사용한다
     }
 
     var userPasswdState by remember {
@@ -51,17 +52,26 @@ fun Register(
         )
 
         OutlinedTextField(
-            value = userIdState ?: "",
+            value = userIdState,
             onValueChange = { userIdState = it },
             label = { Text("User ID") }
         )
 
         OutlinedTextField(
-            value = userPasswdState ?: "",
+            value = userPasswdState,
             onValueChange = { userPasswdState = it },
             label = { Text("Enter password") },
             visualTransformation = PasswordVisualTransformation(),
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password)
         )
     }
+}
+
+@Preview
+@Composable
+private fun RegisterPreview() {
+    Register(
+        userID = "TODO()",
+        userPasswd = "TODO()"
+    )
 }
